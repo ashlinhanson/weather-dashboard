@@ -27,7 +27,10 @@ $("citySrchBtn").click(function(){
     })
 }
 )
-
+function convertTemp (kelvin) {
+    var temp = Math.floor((kelvin - 273.15) * 1.80 + 32);
+    return temp;
+}
 
 
 }
