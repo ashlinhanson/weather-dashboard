@@ -11,32 +11,40 @@
 </head>
 <body>
     <!--this is where the retrieved info will be placed for the current day-->
-<div class="row" col-md-12 id="current-day">
-    <h1 class="city"></h1>
-    <p class="date"></p>
-    <img class="conditionImage"></img>
-    <p class="temperature"></p>
-    <p class="humidity"></p>
-    <p class="wind"></p>
-    <p class="uvIndex"></p>
-</div>
+    <div class="day-container">
+        <div class="card" style="width: 18rem;">
+            <div class="col-md-12" id="current-day">
+                <h1 class="city"></h1>
+                <p class="date"></p>
+                <img class="conditionImage"></img>
+                <p class="temperature"></p>
+                <p class="humidity"></p>
+                <p class="wind"></p>
+                <p class="uvIndex"></p>
+            </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-md-12" id="current-day">
+                <h1 class="city"></h1>
+                <p class="date"></p>
+                <img class="conditionImage"></img>
+                <p class="temperature"></p>
+                <p class="humidity"></p>
+                <p class="wind"></p>
+                <p class="uvIndex"></p>
+            </div>
+        </div>
+    </div>
 
-<div class="five-day-container">
-    <div class="day1">
-        <p class="date"></p>
-        <img class="conditionImage"></img>
-        <p class="temperature"></p>
-        <p class="humidity"></p>
-        <p class="wind"></p>
-        <p class="uvIndex"></p>
-    </div>
-    <div class="day2">
-    </div>
-    <div class="day3">
-    </div>
-    <div class="day4">
-    </div>
-    <div class="day5">
+<div class="row">
+    <div class="col-md-12" id="five-day-forecast">
+        <div id="day1"></div>
+        <div id="day2"></div>
+        <div id="day3"></div>
+        <div id="day4"></div>
+        <div id="day5"></div>
+        
     </div>
 </div>
 
