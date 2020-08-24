@@ -10,43 +10,47 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <!--nav bar with header-->
+    <nav class="navbar navbar-dark bg-dark p-3">
+        <h1 class="text-white mx-auto">Weather Dashboard</h1>
+     </nav>
     <!--this is where the retrieved info will be placed for the current day-->
-    <div class="day-container">
-        <div class="card" style="width: 18rem;">
-            <div class="col-md-12" id="current-day">
-                <h1 class="city"></h1>
-                <p class="date"></p>
-                <img class="conditionImage"></img>
-                <p class="temperature"></p>
-                <p class="humidity"></p>
-                <p class="wind"></p>
-                <p class="uvIndex"></p>
-            </div>
-            </div>
-          </div>
-        <div class="row">
-            <div class="col-md-12" id="current-day">
-                <h1 class="city"></h1>
-                <p class="date"></p>
-                <img class="conditionImage"></img>
-                <p class="temperature"></p>
-                <p class="humidity"></p>
-                <p class="wind"></p>
-                <p class="uvIndex"></p>
+    <div class="container-fluid row">
+        <div class="h-100 ml-n4 col-md-5" id="searchBar">
+            <div class="bg-light sidebar sidebar-sticky p-3">
+                <h4 class="sidebar-heading p-3">
+                    Search for a city :
+                    <form class="form-inline my-2">
+                        <div class="form-group my-auto">
+                        <label for="searchInput" class="sr-only"></label>
+                        <input type="text" class="form-control" id="searchInput">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
+                    </form>
+                </h4>
+                <div class="searchHistory"></div>
             </div>
         </div>
     </div>
-
-<div class="row">
-    <div class="col-md-12" id="five-day-forecast">
+    <div class="float-right col-md-7">
+        <div class="p-3 container mt-3" id="current-day">
+            <h3 class="city"></h3>
+            <h4 class="temperature"></h4>
+            <h4 class="humidity"></h4>
+            <h4 class="wind"></h4>
+            <h4 class="uvIndex"></h4>
+        </div>
+    </div>
+<!--The five day forecast-->
+    <div class="p-3" id="five-day-forecast">
+        <h3 id="five-day-head">Five Day Outlook</h3>
         <div id="day1"></div>
         <div id="day2"></div>
         <div id="day3"></div>
         <div id="day4"></div>
-        <div id="day5"></div>
-        
+        <div id="day5"></div> 
     </div>
-</div>
+
 
     
 
