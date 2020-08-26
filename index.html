@@ -6,7 +6,6 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,43 +14,52 @@
         <h1 class="text-white mx-auto">Weather Dashboard</h1>
      </nav>
     <!--this is where the retrieved info will be placed for the current day-->
-    <div class="container-fluid row">
-        <div class="h-100 ml-n4 col-md-5" id="searchBar">
-            <div class="bg-light sidebar sidebar-sticky p-3">
-                <h4 class="sidebar-heading p-3">
-                    Search for a city :
-                    <form class="form-inline my-2">
-                        <div class="form-group my-auto">
-                        <label for="searchInput" class="sr-only"></label>
-                        <input type="text" class="form-control" id="searchInput">
-                        </div>
+    <aside class="row">
+            <div class="col-md-3 form-group" id="searchBar">
+                <h3>Search for a city :</h3>
+                    <div class="form-group md-form form-sm form-1 pl-0">
+                        <input type="text" class="form-control my-0 py-0" id="searchInput">
                         <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
-                    </form>
-                </h4>
-                <div class="searchHistoryDiv"></div>
-                <!--appended searches will appear here-->
+                    </div>
+                <div class="searchHistoryDiv">
+                    <ul><!--appended searches appear here--></ul>
+                </div>
+            </div>
+    </aside>
+
+    <div class="container col-md-9">
+        <div class="row">
+            <div class="float-right col-md-12">
+                <div class="card">
+                    <div class="body" id="currentDiv">
+                        <h3 class="cityName" ><!--The city name goes here--></h3>
+                        <div class="weatherIcon"></div>
+                        <div class="currentTemperature"><!--The current temperature goes here--></h4>
+                        <div class="currentHumidity"><!--The current humidity goes here--></h4>
+                        <div class="currentWind"><!--The current wind speed goes here--></h4>
+                        <div class="currentUVIndex" ><!--The current UV index goes here--></h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="float-right col-md-7">
-        <div class="p-3 container mt-3" id="currentDiv">
-            <h3 class="cityName"><!--The city name goes here--></h3>
-            <div class="weatherIcon"></div>
-            <div class="currentTemperature"style="padding-left: 20px; padding-bottom:10px"><!--The current temperature goes here--></h4>
-            <div class="currentHumidity"style="padding-left: 20px; padding-bottom:10px"><!--The current humidity goes here--></h4>
-            <div class="currentWind"style="padding-left: 20px; padding-bottom:10px"><!--The current wind speed goes here--></h4>
-            <div class="currentUVIndex"style="padding-left: 20px; padding-bottom:10px"><!--The current UV index goes here--></h4>
-        </div>
-    </div>
 <!--The five day forecast-->
-    <div class="p-3" id="five-day-forecast" class="row">
-        <h3 id="five-day-head">Five Day Outlook</h3>
-        <div id="day1"></div>
-        <div id="day2"></div>
-        <div id="day3"></div>
-        <div id="day4"></div>
-        <div id="day5"></div> 
-    </div>
+<section class="row">
+    <div class="container">
+        <div class="float-right col-md-12">
+            <div class="card" id="five-day-forecast">
+                <div class="card-body">
+                    <h3 id="five-day-head">Five Day Outlook</h3>
+                    <div id="day1"></div>
+                    <div id="day2"></div>
+                    <div id="day3"></div>
+                    <div id="day4"></div>
+                    <div id="day5"></div> 
+                </div>
+            </div>
+        </div>
+    </div> 
+</section> 
 
 
     

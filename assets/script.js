@@ -40,7 +40,7 @@ function getWeather(){
 // $(".currentDiv").addClass("border");
 $(".searchInput").append(searchInput + " (" + currentDate + ") ");
 
-$(".cityName").append(searchInput.val());
+$(".cityName").append(searchInput.val(""));
 $(".currentHumidity").append("Humidity: " + humidity + "%");
 $(".currentTemperature").append("Temperature: " + temperature + farSym);
 $(".currentWind").append("Wind Speed: " + wind + " MPH");
@@ -50,6 +50,7 @@ $(".weatherIcon").append(img);
 })
 
 }
+//UV API call
 function getUVIndex(lat,lon){
     var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=e96dc3bf6b9350e78107e685794c2a31&lat="+lat+"&lon="+lon;
     $.ajax({
@@ -57,10 +58,19 @@ function getUVIndex(lat,lon){
         method : "GET"
     }).then(function(uvResponse){
         console.log(uvResponse);
+        var uvIndex = data[0].value;
+        console.log(uvIndex)
+
+        if (uvIndex <= 3){
+            $(".currentUVIndex").addClass("btn-success");
+        }else if (uvIndex <= 6){
+            $(".currentUVIndex").addClass("btn-warning");
+        }else if (uvIndex <= 11) {
+            $(".currentUVIndex").addClass("btn-danger");
+        }
         $(".currentUVIndex").append("UV Index " + uvResponse.value)
     })
 }
-
 
 
 
