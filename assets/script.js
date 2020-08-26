@@ -3,6 +3,9 @@ var currentDate = moment().format("L");
 var searchInput = $("searchInput");
 var currentDay = $("currentDiv");
 const farSym = "\u2109";
+
+$(".card").css("display", "none");
+
 $("#citySrchBtn").click(getWeather)
 
 function getWeather(){
@@ -37,10 +40,10 @@ function getWeather(){
     
 
 
-// $(".currentDiv").addClass("border");
-$(".searchInput").append(searchInput + " (" + currentDate + ") ");
+// $(".currentDiv").addClass("border border-secondary");
+// $("#searchInput").text(searchInput + currentDate);
 
-$(".cityName").append(searchInput.val(""));
+$(".cityName").append(city + " ("+currentDate+")");
 $(".currentHumidity").append("Humidity: " + humidity + "%");
 $(".currentTemperature").append("Temperature: " + temperature + farSym);
 $(".currentWind").append("Wind Speed: " + wind + " MPH");
