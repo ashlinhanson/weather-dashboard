@@ -69,7 +69,7 @@ function getUVIndex(lat,lon){
     })
 }
         var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
-
+        //Five day forecast API call, producing ERROR 400 : BAD REQUEST
         $.ajax({
             url: forecastURL,
             method: "GET"
