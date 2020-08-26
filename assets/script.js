@@ -56,9 +56,9 @@ function getUVIndex(lat,lon){
     $.ajax({
         url : uvQueryURL,
         method : "GET"
-    }).then(function(uvResponse){
-        console.log(uvResponse);
-        var uvIndex = data[0].value;
+    }).then(function(result){
+        console.log(result);
+        var uvIndex = result.value;
         console.log(uvIndex)
 
         if (uvIndex <= 3){
@@ -68,7 +68,7 @@ function getUVIndex(lat,lon){
         }else if (uvIndex <= 11) {
             $(".currentUVIndex").addClass("btn-danger");
         }
-        $(".currentUVIndex").append("UV Index " + uvResponse.value)
+        $(".currentUVIndex").append("UV Index: " + uvIndex)
     })
 }
 
