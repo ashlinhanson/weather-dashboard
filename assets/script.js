@@ -24,11 +24,14 @@ function previousSearches (){
 previousSearches();
 
 
+
 $("#citySrchBtn").click(function() {
     event.preventDefault();
     let city = $("#searchInput").val();
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e96dc3bf6b9350e78107e685794c2a31";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e96dc3bf6b9350e78107e685794c2a31";
     var temperature; 
+    var fiveDayTemperature;
+    var fiveDayHumidity;
 
 
             console.log(city);
@@ -43,7 +46,7 @@ $("#citySrchBtn").click(function() {
         //console.log(humidity)
         var wind = response.wind.speed;
         var iconCode = response.weather[0].icon;
-        var iconUrl = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"; 
+        var iconUrl = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"; 
         var img = $(`<img src="${iconUrl}">`)
         let lat = response.coord.lat;
         let lon = response.coord.lon;
@@ -58,7 +61,7 @@ $("#citySrchBtn").click(function() {
     
 
     //UV API call
-        var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=e96dc3bf6b9350e78107e685794c2a31&lat="+lat+"&lon="+lon;
+        var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=e96dc3bf6b9350e78107e685794c2a31&lat="+lat+"&lon="+lon;
         $.ajax({
             url : uvQueryURL,
             method : "GET"
@@ -74,7 +77,7 @@ $("#citySrchBtn").click(function() {
             }else if (uvIndex <= 11) {
                 $("#currentUVIndex").addClass("btn-danger");
             }
-            $("#currentUVIndex").append("UV Index: " + uvIndex)
+            $("#currentUVIndex").text("UV Index: " + uvIndex)
         })
     
             $('.card').css("display" , "block");
@@ -87,7 +90,7 @@ $("#citySrchBtn").click(function() {
             $('#day5').text(day5);
 
 
-            var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
             //Five day forecast API call, producing ERROR 400 : BAD REQUEST
             $.ajax({
                 url: forecastURL,
@@ -100,29 +103,29 @@ $("#citySrchBtn").click(function() {
 
                 var imageDivs = [$("#weatherIcon1"), $("#weatherIcon2"), $("#weatherIcon3"), $("#weatherIcon4"), $("#weatherIcon5")];
 
-                // for (var i = 0; i < forecastCodes; i++){
-                //     if (forecastCodes[i] === "01d"){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === "01n"){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes === "02d" || forecastCodes[i] === "02n"){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
-                //         imageDivs[i].append(img);
-                //     } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
-                //         imageDivs[i].append(img);
-                //     } 
-                // }
+                for (var i = 0; i < forecastCodes; i++){
+                    if (forecastCodes[i] === "01d"){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === "01n"){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes === "02d" || forecastCodes[i] === "02n"){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
+                        imageDivs[i].append(img);
+                    } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
+                        imageDivs[i].append(img);
+                    } 
+                }
                 var humidityDivs = [$("#humidity1"), $("#humidity2"), $("#humidity3"), $("#humidity4"), $("#humidity5")];
 
                 for (var i = 0; i < humidityDivs.length; i++){
@@ -144,5 +147,18 @@ $("#citySrchBtn").click(function() {
     }
 
     });
+
+    function appendedCities (){
+        var previousCities = $('<button>');
+        previousCities.val(city);
+        previousCities.addClass("list-group-item list-group-item-action p-3 cityBtns");
+        $('#searchHistoryDiv').prepend(previousCities);
+    };
+
+    function storeSearches (){
+        window.localStorage.setItem('city', city);
+    }
+    storeSearches();
+    appendedCities();
 });
 
