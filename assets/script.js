@@ -69,13 +69,14 @@ $("#citySrchBtn").click(function() {
             //console.log(result);
             var uvIndex = result.value;
             //console.log(uvIndex)
+            const uvColors = ['#2ecc71', '#FFC300', '#C70039'];
 
-            if (uvIndex <= 3){
-                $("#currentUVIndex").addClass("btn-success");
-            }else if (uvIndex <= 6){
-                $("#currentUVIndex").addClass("btn-warning");
-            }else if (uvIndex <= 11) {
-                $("#currentUVIndex").addClass("btn-danger");
+            if (uvIndex < 3){
+                $("#currentUVIndex").css('background-color', uvColors[0]);
+            }else if (uvIndex < 6 && uvIndex >=3){
+                $("#currentUVIndex").css('background-color', uvColors[1]);
+            }else if (uvIndex < 11 && uvIndex >= 6) {
+                $("#currentUVIndex").css('background-color', uvColors[2]);
             }
             $("#currentUVIndex").text("UV Index: " + uvIndex)
         })

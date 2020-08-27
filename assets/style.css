@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #e8cf42;
+    color: #e7e6e9;
+    border-bottom: solid 5px #293462;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+#citySrchBtn {
+    float: right;
+    background-color: #293462;
+}
+
+

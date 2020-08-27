@@ -10,25 +10,25 @@
 </head>
 <body>
     <!--nav bar with header-->
-    <nav class="navbar navbar-dark bg-dark p-3">
+    <nav class="navbar navbar p-3">
         <h1 class="text-white mx-auto">Weather Dashboard</h1>
-    </nav>
     <!--this is where the retrieved info will be placed for the current day-->
-    <div class="container-fluid row" style="margin-top: 10px">
-            <div class="h-100 ml-n4 col-md-4" id="searchBar">
-                <div class="sidebar sidebar-sticky p-3>
-                    <h3>Search for a city :</h3>
-                        <form class="form-inline my-2">
-                            <input type="text" class="form-control my-0 py-0" id="searchInput">
-                        </form>
-                        <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
-                    <div class="searchHistoryDiv">
-                        <ul><!--appended searches appear here--></ul>
+        <div class="container-fluid row">
+                <div class="h-100 ml-n4 col-md-3" id="searchBar">
+                    <div class="sidebar sidebar-sticky p-3>
+                        <h3>Search for a city :</h3>
+                            <form class="form-inline my-2">
+                                <input type="text" class="form-control my-0 py-0" id="searchInput">
+                                <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
+                            </form>
                     </div>
                 </div>
-            </div>
+                <div class="searchHistoryDiv">
+                    <ul><!--appended searches appear here--></ul>
+                </div>
         </div>
-    <div class="container col-md-7">
+    </nav>
+    <div class="container col-md-12">
         <div class="p-3 container mt-3" id="currentDiv">
             <h3 class="cityName"><!--The city name goes here--></h3>
             <div class="weatherIcon"></div>
@@ -42,40 +42,40 @@
         </div>
     </div>
 <!--The five day forecast-->
-    <div class="col-md-12" id="five-day-forecast">
-        <h2 id="five-day-head" style="text-align: center"></h2>
-            <div class="row">
-                <div class="card m-2 p-1">
-                    <h5 class="pt-2" id="day1"></h5>
-                    <h2 class="text-center" id="weatherIcon1"></h2>
-                    <p class="text-center" id="temperature1"></p>
-                    <p class="text-center" id="humidity1"></p>
-                </div>
-                <div class="card m-2 p-1">
-                    <h5 class="pt-2" id="day2"></h5>
-                    <h2 class="text-center" id="weatherIcon2"></h2>
-                    <p class="text-center" id="temperature2"></p>
-                    <p class="text-center" id="humidity2"></p>
-                </div>
-                <div class="card m-2 p-1">
-                    <h5 class="pt-2" id="day3"></h5>
-                    <h2 class="text-center" id="weatherIcon3"></h2>
-                    <p class="text-center" id="temperature3"></p>
-                    <p class="text-center" id="humidity3"></p>
-                </div>
-                <div class="card m-2 p-1">
-                    <h5 class="pt-2" id="day4"></h5>
-                    <h2 class="text-center" id="weatherIcon4"></h2>
-                    <p class="text-center" id="temperature4"></p>
-                    <p class="text-center" id="humidity4"></p>
-                </div>
-                <div class="card m-2 p-1">
-                    <h5 class="pt-2" id="day5"></h5>
-                    <h2 class="text-center" id="weatherIcon5"></h2>
-                    <p class="text-center" id="temperature5"></p>
-                    <p class="text-center" id="humidity5"></p>
-                </div> 
-            </div>
+    <div class="container" id="five-day-forecast" style="padding-left: 40px; padding-right: 40px">
+        <h2 id="five-day-head"></h2>
+        <div class="row">
+                    <div class="card m-2 p-1">
+                        <h5 class="pt-2" id="day1" style="text-align: center"></h5>
+                        <h2 class="text-center" id="weatherIcon1"></h2>
+                        <p class="text-center" id="temperature1"></p>
+                        <p class="text-center" id="humidity1"></p>
+                    </div>
+                    <div class="card m-2 p-1">
+                        <h5 class="pt-2" id="day2"></h5>
+                        <h2 class="text-center" id="weatherIcon2"></h2>
+                        <p class="text-center" id="temperature2"></p>
+                        <p class="text-center" id="humidity2"></p>
+                    </div>
+                    <div class="card m-2 p-1">
+                        <h5 class="pt-2" id="day3"></h5>
+                        <h2 class="text-center" id="weatherIcon3"></h2>
+                        <p class="text-center" id="temperature3"></p>
+                        <p class="text-center" id="humidity3"></p>
+                    </div>
+                    <div class="card m-2 p-1">
+                        <h5 class="pt-2" id="day4"></h5>
+                        <h2 class="text-center" id="weatherIcon4"></h2>
+                        <p class="text-center" id="temperature4"></p>
+                        <p class="text-center" id="humidity4"></p>
+                    </div>
+                    <div class="card m-2 p-1">
+                        <h5 class="pt-2" id="day5"></h5>
+                        <h2 class="text-center" id="weatherIcon5"></h2>
+                        <p class="text-center" id="temperature5"></p>
+                        <p class="text-center" id="humidity5"></p>
+                    </div> 
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
