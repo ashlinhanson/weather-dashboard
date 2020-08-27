@@ -59,18 +59,18 @@ $("#citySrchBtn").click(function() {
             //console.log(uvIndex)
 
             if (uvIndex <= 3){
-                $(".currentUVIndex").addClass("btn-success");
+                $("#currentUVIndex").addClass("btn-success");
             }else if (uvIndex <= 6){
-                $(".currentUVIndex").addClass("btn-warning");
+                $("#currentUVIndex").addClass("btn-warning");
             }else if (uvIndex <= 11) {
-                $(".currentUVIndex").addClass("btn-danger");
+                $("#currentUVIndex").addClass("btn-danger");
             }
-            $(".currentUVIndex").text("UV Index: " + uvIndex)
+            $("#currentUVIndex").append("UV Index: " + uvIndex)
         })
     
             $('.card').css("display" , "block");
             $('.card').addClass('bg-primary text-white');
-            $('#forecastTitle').text("5 Day Forecast:");
+            $('#five-day-head').text("Five Day Outlook");
             $('#day1').text(day1);
             $('#day2').text(day2);
             $('#day3').text(day3);
