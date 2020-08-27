@@ -14,6 +14,15 @@ const farSym = "\u2109";
 
 $(".card").css("display", "none");
 
+function previousSearches (){
+    var storedCities = $('<button>');
+    storedCities.text(window.localStorage.getItem("city"));
+    storedCities.addClass("list-group-item list-group-item-action p-3 cityBtns");
+    $('.searchHistoryDiv').prepend(storedCities);
+}
+
+previousSearches();
+
 
 $("#citySrchBtn").click(function() {
     event.preventDefault();
