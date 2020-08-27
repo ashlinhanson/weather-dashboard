@@ -68,6 +68,16 @@ $("#citySrchBtn").click(function() {
             $(".currentUVIndex").text("UV Index: " + uvIndex)
         })
     
+            $('.card').css("display" , "block");
+            $('.card').addClass('bg-primary text-white');
+            $('#forecastTitle').text("5 Day Forecast:");
+            $('#day1').text(day1);
+            $('#day2').text(day2);
+            $('#day3').text(day3);
+            $('#day4').text(day4);
+            $('#day5').text(day5);
+
+
             var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
             //Five day forecast API call, producing ERROR 400 : BAD REQUEST
             $.ajax({
@@ -75,22 +85,47 @@ $("#citySrchBtn").click(function() {
                 method: "GET"
             }).then(function(result){
                 console.log(result);
-                var forecastCodes = [result.list[1].weather[0].icon, 
-                result.list[2].weather[0].icon,
-                result.list[3].weather[0].icon,
-                result.list[4].weather[0].icon,
-                result.list[5].weather[0].icon];
+                var forecastCodes = [result.list[1].weather[0].icon, result.list[2].weather[0].icon, result.list[3].weather[0].icon, result.list[4].weather[0].icon, result.list[5].weather[0].icon];
 
                 console.log(result);
 
-                for (var i = 0; i < forecastCodes; i++){
-                    if (forecastCodes[i] === "01d"){
-                        $(".weatherIcon").append(img);
-                    } else if (forecastCodes[i] === "01n"){
-                        $(".weatherIcon").append(img);
-                    } else if (forecastCodes === "02d" || forecastCodes[i] === "02n"){
-                        $(".weatherIcon").append(img);
-                    }
+                var imageDivs = [$("#weatherIcon1"), $("#weatherIcon2"), $("#weatherIcon3"), $("#weatherIcon4"), $("#weatherIcon5")];
+
+                // for (var i = 0; i < forecastCodes; i++){
+                //     if (forecastCodes[i] === "01d"){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === "01n"){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes === "02d" || forecastCodes[i] === "02n"){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '03d' || forecastCodes[i] === '03n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '04d' || forecastCodes[i] === '04n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '09d' || forecastCodes[i] === '09n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '10d' || forecastCodes[i] === '10n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '11d' || forecastCodes[i] === '11n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '13d' || forecastCodes[i] === '13n'){
+                //         imageDivs[i].append(img);
+                //     } else if (forecastCodes[i] === '50d' || forecastCodes[i] === '50n'){
+                //         imageDivs[i].append(img);
+                //     } 
+                // }
+                var humidityDivs = [$("#humidity1"), $("#humidity2"), $("#humidity3"), $("#humidity4"), $("#humidity5")];
+
+                for (var i = 0; i < humidityDivs.length; i++){
+                    fiveDayHumidity = result.list[i + 1].main.humidity;
+                    humidityDivs[i].text("Humidity : " + fiveDayHumidity + "%");
+                }
+
+                var temperatureDivs = [$("#temperature1"), $("#temperature2"), $("#temperature3"), $("#temperature4"), $("#temperature5")];
+
+                for (var i = 0; i < temperatureDivs.length; i++){
+                    fiveDayTemps = changeTemp(result.list[i + 1].main.temp);
+                    temperatureDivs[i].text("Temperature : " + fiveDayTemps + farSym);
                 }
              });
 
