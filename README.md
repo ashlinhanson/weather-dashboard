@@ -5,5 +5,3 @@ Your search is done by city name and will produce current weather conditions and
 ![Searched Example](assets/screenshot.png?raw=true)
 
 * https://ashlinhanson.github.io/weather-dashboard/
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
