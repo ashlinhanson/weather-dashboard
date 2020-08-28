@@ -10,41 +10,45 @@
 </head>
 <body>
     <!--nav bar with header-->
-    <nav class="navbar navbar p-3">
+    <nav class="navbar p-3">
         <h1 class="text-white mx-auto">Weather Dashboard</h1>
-    <!--this is where the retrieved info will be placed for the current day-->
-        <div class="container-fluid row">
-                <div class="h-100 ml-n4 col-md-3" id="searchBar">
-                    <div class="sidebar sidebar-sticky p-3>
-                        <h3>Search for a city :</h3>
-                            <form class="form-inline my-2">
-                                <input type="text" class="form-control my-0 py-0" id="searchInput">
-                                <button type="submit" class="btn btn-primary mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
-                            </form>
-                    </div>
-                </div>
-                <div class="searchHistoryDiv">
-                    <ul><!--appended searches appear here--></ul>
-                </div>
-        </div>
     </nav>
-    <div class="container col-md-12">
-        <div class="p-3 container mt-3" id="currentDiv">
-            <h3 class="cityName"><!--The city name goes here--></h3>
-            <div class="weatherIcon"></div>
-            <h4 class="currentTemperature"><!--The current temperature goes here--></h4>
-            <h4 class="currentHumidity"><!--The current humidity goes here--></h4>
-            <h4 class="currentWind"><!--The current wind speed goes here--></h4>
-            <div class="row px-3">
-                <h4 class="lead pr-1" id="currentUVIndex"></h4>
-                <h5 class="lead px-1 text-white rounded" id="currentUVIndex"></h5>
+    <!--this is where the retrieved info will be placed for the current day-->
+    <div class="container-fluid row">
+        <div class="h-100 ml-n4 col-md-3" id="searchBar">
+            <div class="sidebar sidebar-sticky p-3>
+                <h3 class="sidebar-heading p-3">
+                <strong>Search for a city :</strong>
+                <form class="form-inline my-2">
+                    <div class="form-group my-auto">
+                    <label for="searchInput" class="sr-only"></label>
+                    <input type="text" class="form-control" id="searchInput">
+                    </div>
+                    <button type="submit" class="btn mb-2 p-2 my-auto fas fa-search" id="citySrchBtn"></button>
+                </form>
+                </h3>
+                    <ul class="list-group p-3 mb-3" id="searchHistoryDiv">
+                        <!--appended searches appear here-->
+                    </ul>
             </div>
         </div>
-    </div>
-<!--The five day forecast-->
-    <div class="container" id="five-day-forecast" style="padding-left: 40px; padding-right: 40px">
-        <h2 id="five-day-head"></h2>
-        <div class="row">
+        <div class="float-right col-md-7 justify-content-end">
+                <div class="p-3 container mt-5 rounded" id="currentDiv">
+                    <h3 class="my-3" id="cityName"><!--The city name goes here--></h3>
+                    <div class="weatherIcon"></div>
+                    <h4 class="leady" id="currentTemperature"><!--The current temperature goes here--></h4>
+                    <h4 class="leady" id="currentHumidity"><!--The current humidity goes here--></h4>
+                    <h4 class="leady" id="currentWind"><!--The current wind speed goes here--></h4>
+                        <div class="row px-3">
+                            <h4 class="lead pr-1" id="currentUVIndex"></h4>
+                            <h5 class="lead px-1 text-white rounded" id="currentUVIndex"></h5>
+                        </div>
+                </div>
+            
+                <!--The five day forecast-->
+            <div class="p-3 mt-3 rounded" id="five-day-forecast">
+                <h3 class="my-3" id="five-day-head"></h3>
+                <div class="container row">
                     <div class="card m-2 p-1">
                         <h5 class="pt-2" id="day1" style="text-align: center"></h5>
                         <h2 class="text-center" id="weatherIcon1"></h2>
@@ -75,6 +79,8 @@
                         <p class="text-center" id="temperature5"></p>
                         <p class="text-center" id="humidity5"></p>
                     </div> 
+                </div>
+            </div>
         </div>
     </div>
 

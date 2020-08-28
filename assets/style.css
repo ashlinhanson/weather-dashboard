@@ -9,6 +9,11 @@
 #citySrchBtn {
     float: right;
     background-color: #293462;
+    color: #e7e6e9;
+}
+
+.card{
+    background-color: #293462;;
 }
 
 

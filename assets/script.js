@@ -5,8 +5,8 @@ let day2 = moment().add(2, 'day').format('L');
 let day3 = moment().add(3, 'day').format('L');
 let day4 = moment().add(4, 'day').format('L');
 let day5 = moment().add(5, 'day').format('L');
-var searchInput = $("searchInput");
-var currentDay = $("currentDiv");
+var searchInput = $("#searchInput");
+var currentDay = $("#currentDiv");
 var apiKey = "e96dc3bf6b9350e78107e685794c2a31";
 const farSym = "\u2109";
 
@@ -53,10 +53,10 @@ $("#citySrchBtn").click(function() {
         
        
 
-    $(".cityName").text(city + " ("+currentDate+")");
-    $(".currentHumidity").text("Humidity: " + humidity + "%");
-    $(".currentTemperature").text("Temperature: " + temperature + farSym);
-    $(".currentWind").text("Wind Speed: " + wind + " MPH");
+    $("#cityName").text(city + " ("+currentDate+")");
+    $("#currentHumidity").text("Humidity: " + humidity + "%");
+    $("#currentTemperature").text("Temperature: " + temperature + farSym);
+    $("#currentWind").text("Wind Speed: " + wind + " MPH");
     $(".weatherIcon").append(img);
     
 
@@ -82,7 +82,7 @@ $("#citySrchBtn").click(function() {
         })
     
             $('.card').css("display" , "block");
-            $('.card').addClass('bg-primary text-white');
+            $('.card').addClass('text-white');
             $('#five-day-head').text("Five Day Outlook");
             $('#day1').text(day1);
             $('#day2').text(day2);
